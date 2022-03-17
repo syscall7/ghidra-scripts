@@ -280,7 +280,8 @@ public class ResolveARM32SyscallsScript extends GhidraScript {
 	 * @return true precisely when the instruction is a system call
 	 */
 	private static boolean checkARM32Instruction(Instruction inst) {
-        return inst.getMnemonicString().equals("svc");
+        String mnemonic = inst.getMnemonicString();
+        return mnemonic.equals("svc") || mnemonic.equals("swi");
 	}
 
 	/**
